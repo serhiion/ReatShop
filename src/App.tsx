@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Product} from "./components/Product"
+import {useProducts} from "./hooks/products";
+import {Loader} from "./components/Loader";
+import {Error} from "./components/Error";
+
 
 function App() {
+  const {loading, products, error} = useProducts()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mx-auto max-w-2xl pt-5">
+        {loading && <Loader></Loader>}
+        {error && <Error error={error}></Error>}
+        {products.map(product => <Product product={product} key={product.id}/>)}
     </div>
   );
 }
