@@ -5,7 +5,7 @@ interface ProductProps {
     product: IProduct
 }
 
-export function Product ({ product }: ProductProps) {
+export function Product({product}: ProductProps) {
     const [details, setDetails] = useState(false)
 
     const btnClassName = details ? "bg-green-500" : "bg-green-800"
@@ -21,12 +21,12 @@ export function Product ({ product }: ProductProps) {
             <button
                 className={btnClasses.join(" ")}
                 onClick={() => setDetails(prev => !prev)}>
-                { details ? 'Hide Details' : 'Details'}
+                {details ? 'Hide Details' : 'Details'}
             </button>
 
-            {details &&<div>
+            {details && <div>
                 <p> {product.description} </p>
-                <p>Rate: <span style={{ fontWeight: "bold"}}>{product.rating.rate}</span></p>
+                <p>Rate: <span style={{fontWeight: "bold"}}>{product.rating.rate}</span></p>
             </div>}
         </div>
     )
