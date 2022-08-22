@@ -1,4 +1,4 @@
-import {Product} from "./components/Product"
+import {Product} from "./containers/Product"
 import {useProducts} from "./hooks/products";
 import {Loader} from "./components/Loader";
 import {Error} from "./components/Error";
